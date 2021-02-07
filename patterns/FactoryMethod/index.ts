@@ -1,9 +1,9 @@
-export interface Product {
+export interface AbstractProduct {
   operation(): number;
 }
 
-export abstract class Creator {
-  public abstract factoryMethod(): Product;
+export abstract class AbstractCreator {
+  public abstract factoryMethod(): AbstractProduct;
 
   public someOperation(): string {
     const product = this.factoryMethod();
@@ -11,26 +11,26 @@ export abstract class Creator {
   }
 }
 
-class ProductExample1 implements Product {
+class Product1 implements AbstractProduct {
   public operation(): number {
     return 1;
   }
 }
 
-class ProductExample2 implements Product {
+class Product2 implements AbstractProduct {
   public operation(): number {
     return 2;
   }
 }
 
-class ConcreteCreator1 extends Creator {
-  public factoryMethod(): Product {
-    return new ProductExample1();
+class Creator1 extends AbstractCreator {
+  public factoryMethod(): AbstractProduct {
+    return new Product1();
   }
 }
 
-class ConcreteCreator2 extends Creator {
-  public factoryMethod(): Product {
-    return new ProductExample2();
+class Creator2 extends AbstractCreator {
+  public factoryMethod(): AbstractProduct {
+    return new Product2();
   }
 }
