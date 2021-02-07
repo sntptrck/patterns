@@ -1,5 +1,5 @@
 export class Singleton {
-  static instance?: Singleton;
+  private static instance?: Singleton;
   data: unknown;
   constructor(data: unknown) {
     if (typeof Singleton.instance === "object") {
@@ -7,6 +7,10 @@ export class Singleton {
     }
     this.data = data;
     Singleton.instance = this;
+    return this;
+  }
+
+  getInstance(): Singleton {
     return this;
   }
 }
