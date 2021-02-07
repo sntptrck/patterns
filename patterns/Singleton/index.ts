@@ -10,7 +10,7 @@ export class Singleton {
     return this;
   }
 
-  getInstance(): Singleton {
-    return this;
+  public static getInstance(): Singleton | undefined {
+    return Singleton.instance;
   }
 }
